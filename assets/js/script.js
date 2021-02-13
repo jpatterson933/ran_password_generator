@@ -4,14 +4,15 @@ var mainBox = document.createElement("box");
 var boxTitle = document.createElement("h1");
 var lengthTitle = document.createElement("p");
 var passwordLength = document.createElement("input")
-button.innerHTML = "Click to Start";
+button.innerHTML = "Click to Generate Random Password";
 boxTitle.innerHTML = "Choose Password Length";
-lengthTitle.innerHTML = "Password can be between 8 and 128 characters"
+lengthTitle.innerHTML = "Password length MUST be between 8 and 128 Characters"
 
 var body = document.getElementsByTagName("body")[0];
 body.appendChild(button);
 body.appendChild(boxTitle);
 body.appendChild(lengthTitle);
+
 
 
 //BEG START BUTTON STYLE
@@ -23,6 +24,7 @@ button.style.justifyContent = "center";
 button.style.margin = "4em auto 0 auto";
 button.style.padding = "1em 2em 1em 2em";
 button.style.borderRadius = "5px";
+button.style.boxShadow = "rgba(0, 0, 0, 0.56) 0px 22px 70px 4px";
 button.style.fontSize = "2em";
 //END START BUTTON STYLE
 
@@ -31,7 +33,7 @@ lengthTitle.style.display = "none";
 
 //when the button is clicked it will go away
 button.onclick = function () {
-    
+
     //START BUTTON DISAPPEARS
     button.style.display = "none";
 
@@ -59,14 +61,14 @@ button.onclick = function () {
     //END LENGTH TITLE STYLING
     
     //BEG ENTER BUTTON STYLING
-    document.getElementById("pressEnter").style.display = "flex";
-    document.getElementById("pressEnter").style.justify = "center";
-    document.getElementById("pressEnter").style.margin = "1em auto 0 auto";
-    document.getElementById("pressEnter").style.backgroundColor = "rgb(99, 150, 225)";
-    document.getElementById("pressEnter").style.padding = ".5em";
-    document.getElementById("pressEnter").style.color = "white";
-    document.getElementById("pressEnter").style.border = "1px solid black";
-    document.getElementById("pressEnter").style.borderRadius = "5px";
+    document.getElementById("clickContinue").style.display = "flex";
+    document.getElementById("clickContinue").style.justify = "center";
+    document.getElementById("clickContinue").style.margin = "1em auto 0 auto";
+    document.getElementById("clickContinue").style.backgroundColor = "rgb(99, 150, 225)";
+    document.getElementById("clickContinue").style.padding = ".5em";
+    document.getElementById("clickContinue").style.color = "white";
+    document.getElementById("clickContinue").style.border = "1px solid black";
+    document.getElementById("clickContinue").style.borderRadius = "5px";
     //END ENTER BUTTON STYLING
 
     

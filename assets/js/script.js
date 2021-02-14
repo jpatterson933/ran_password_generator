@@ -1,21 +1,27 @@
-
 var button = document.createElement("button");
 var mainBox = document.createElement("box");
 var boxTitle = document.createElement("h1");
 var lengthTitle = document.createElement("p");
 var passwordLength = document.createElement("input")
+
+//test
+var testing = document.createElement("p");
+//test
+
+
 button.innerHTML = "Click to Generate Random Password";
 boxTitle.innerHTML = "Choose Password Length";
 boxTitle.setAttribute("id", "box_title");
 lengthTitle.innerHTML = "Password length MUST be between 8 and 128 Characters"
 
-
 var body = document.getElementsByTagName("body")[0];
+
 body.appendChild(button);
 body.appendChild(boxTitle);
 body.appendChild(lengthTitle);
 
-
+//test
+body.appendChild(testing);
 
 //BEG START BUTTON STYLE
 button.style.color = "white"; 
@@ -94,7 +100,7 @@ button.onclick = function () {
         //END OF BOX TITLE STYLING
 
         //new length title and styling
-        lengthTitle.innherHTML = "Checkbox if you would like your password to include any of the following..."
+        lengthTitle.innerHTML = "Check any of the following boxes to strengthen your password"
         //BEG LENGTH TITLE STYLING
         lengthTitle.style.display = "flex";
         lengthTitle.style.justifyContent = "center";
@@ -116,38 +122,108 @@ button.onclick = function () {
 
         //sets input type to checkbox for variables above
         checkbox1.setAttribute("type", "checkbox");
+        checkbox1.setAttribute("name", "lc");
+        checkbox1.setAttribute("value", "true");
         checkbox2.setAttribute("type", "checkbox");
         checkbox3.setAttribute("type", "checkbox");
         checkbox4.setAttribute("type", "checkbox");
 
-        //variables added to the body of the document
-        body.appendChild(checkbox1);
-        body.appendChild(checkbox2);
-        body.appendChild(checkbox3);
-        body.appendChild(checkbox4);
+        //variables added to the body of the document for checkboxes
         body.appendChild(checkbox1Title);
-        body.appendChild(checkbox2Title);
-        body.appendChild(checkbox3Title);
-        body.appendChild(checkbox4Title);
+        body.appendChild(checkbox1);
 
+        body.appendChild(checkbox2Title);
+        body.appendChild(checkbox2);
+
+        body.appendChild(checkbox3Title);
+        body.appendChild(checkbox3);
+
+        body.appendChild(checkbox4Title);
+        body.appendChild(checkbox4);
 
         //checkbox styling
+        checkbox1Title.innerHTML = "lowercase letters"
+        checkbox1Title.style.display = "flex";
+        checkbox1Title.style.justifyContent = "center";
+        checkbox1Title.style.color = "rgb(0, 84, 163)"
+       
         checkbox1.style.display = "flex";
-        checkbox1.style.margin = "1em auto";
+        checkbox1.style.margin = "0 auto";
+        checkbox1.style.marginTop = "-15px";
+
+        checkbox2Title.innerHTML = "UPPERCASE letters"
+        checkbox2Title.style.display = "flex";
+        checkbox2Title.style.justifyContent = "center";
+        checkbox2Title.style.color = "rgb(0, 84, 163)"
 
         checkbox2.style.display = "flex";
         checkbox2.style.margin = "1em auto";
+        checkbox2.style.marginTop = "-15px";
+
+        checkbox3Title.innerHTML = "numbers";
+        checkbox3Title.style.display = "flex";
+        checkbox3Title.style.justifyContent = "center";
+        checkbox3Title.style.color = "rgb(0, 84, 163)"
 
         checkbox3.style.display = "flex";
         checkbox3.style.margin = "1em auto";
+        checkbox3.style.marginTop = "-15px";
+
+        checkbox4Title.innerHTML = "symbols"
+        checkbox4Title.style.display = "flex";
+        checkbox4Title.style.justifyContent = "center";
+        checkbox4Title.style.color = "rgb(0, 84, 163)"
 
         checkbox4.style.display = "flex";
         checkbox4.style.margin = "1em auto";
+        checkbox4.style.marginTop = "-15px";
+
+        //finalize password button
+        var finalButton = document.createElement("button")
+        
+        body.appendChild(finalButton);
+        finalButton.innerHTML = "Generate Password";
+        finalButton.style.display = "flex";
+        finalButton.style.justify = "center";
+        finalButton.style.margin = "1em auto 0 auto";
+        finalButton.style.backgroundColor = "rgb(99, 150, 225)";
+        finalButton.style.padding = ".5em";
+        finalButton.style.color = "white";
+        finalButton.style.border = "1px solid black";
+        finalButton.style.borderRadius = "5px";
+
+        finalButton.onclick = function () {
+            boxTitle.style.display = "none";
+            lengthTitle.style.display = "none";
+            checkbox1Title.style.display = "none";
+            checkbox1.style.display = "none";
+            checkbox2Title.style.display = "none";
+            checkbox2.style.display = "none";
+            checkbox3Title.style.display = "none";
+            checkbox3.style.display = "none";
+            checkbox4Title.style.display = "none";
+            checkbox4.style.display = "none";
+            finalButton.style.display = "none";
+
+
+            //the final password will display here
+            var generatedPassword = document.createElement("box")
+            generatedPassword.innerHTML = "testingphase";
+            body.appendChild(generatedPassword);
+
+            generatedPassword.style.display = "flex";
+            generatedPassword.style.justifyContent = "center";
+            generatedPassword.style.backgroundColor = "rgb(99, 150, 225)";
+            generatedPassword.style.margin = "2em 5em";
+            generatedPassword.style.padding = "1em";
+            generatedPassword.style.borderRadius = "5px";
+            generatedPassword.style.fontSize = "4em";
+            
+        }
+
+        
+        
+        
 
     }
-
-    
-}
-
-
-
+}  

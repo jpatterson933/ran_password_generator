@@ -9,9 +9,7 @@ var lowerCase = "abcdefghijklmnopqrstuvwxyz".split("");
 var symbols = "!@#$%^&*?=+-><(){}[]_/\~".split("");
 var passwordLength = "";
 //------------------------------------------trying to figure out how to prompt the user for numbers only when they input letters for the password length
-var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-console.log(lowerCase)
-console.log(alphabet)
+
 
 //this userChoice will hold the user choices form the prompt - each yes will concat or add the password to the 
 var userChoice = [];
@@ -23,9 +21,15 @@ function generatePassword() {
 
   var passwordLength = (prompt("How long would you like your password to be? It can be between 8 and 128 characters!"));
   while (passwordLength < 8 || passwordLength > 128) {
-    //this will appear when the user has not chosen the correct length or no length at all or entered a letter
-    alert("Please choose enter a number between 8 and 128");
-    var passwordLength = (prompt("How many characters would you like in your password?"));
+        //this will appear when the user has not chosen the correct length or no length at all or entered a letter
+        alert("Please choose enter a number between 8 and 128");
+        var passwordLength = (prompt("How many characters would you like in your password?"));
+        return passwordLength;
+  }
+  //catch numbers HERE!!!!!!!!!!!!!
+  if (passwordLength !== numbers) {
+    alert("NUMBERS ONLY!")
+    return;
   }
 
   //alerts the user how long their password will be
@@ -59,10 +63,6 @@ function generatePassword() {
   }
   return password
 }
-
-
-
-
 
 // Write password to the password input
 function writePassword() {

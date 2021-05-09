@@ -26,11 +26,7 @@ function generatePassword() {
         var passwordLength = (prompt("How many characters would you like in your password?"));
         return passwordLength;
   }
-  //catch numbers HERE!!!!!!!!!!!!!
-  if (passwordLength !== numbers) {
-    alert("NUMBERS ONLY!")
-    return;
-  }
+
 
   //alerts the user how long their password will be
   alert("Your password will be " + passwordLength + " characters long");
@@ -56,7 +52,7 @@ function generatePassword() {
     userChoice = userChoice.concat(symbols)
   }
 
-  //for loop to go through concatted array and select random elemetns to generate a random password
+  //for loop to go through concatted array and select random elements to generate a random password
   for (var i = 0; i < passwordLength; i++) {
     var randomPassword = Math.floor(Math.random() * userChoice.length)
     password += userChoice[randomPassword]
@@ -72,6 +68,20 @@ function writePassword() {
   passwordText.value = password;
 
 }
+
+//this function is going to check whether or not the users input is a number or a letter
+function inputValue(x) {
+  if (isNaN(x)) {
+    return 'Not a Number!';
+  }
+  return x;
+}
+
+console.log(inputValue('100F'));
+// expected output: "Not a Number!"
+
+console.log(inputValue('0.0314E+2'));
+// expected output: 3140
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);

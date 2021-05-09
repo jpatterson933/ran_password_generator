@@ -16,6 +16,17 @@ var userChoice = [];
 //using a for loop below and randomness, we will generate a passowrd string that will be displayed
 var password = "";
 
+
+//this function is going to check whether or not the users input is a number or a letter
+function typeOfNaN(x) {
+  if (Number.isNaN(x)) {
+    return 'Number NaN';
+  }
+  if (isNaN(x)) {
+    return 'NaN';
+  }
+}
+
 //this is the function to generate a passwword
 function generatePassword() {
 
@@ -24,8 +35,16 @@ function generatePassword() {
         //this will appear when the user has not chosen the correct length or no length at all or entered a letter
         alert("Please choose enter a number between 8 and 128");
         var passwordLength = (prompt("How many characters would you like in your password?"));
+
+
+
+        // inputValue(passwordLength, "this is some text to display")
         return passwordLength;
-  }
+      }
+
+      const test = typeOfNaN(passwordLength);
+      console.log(test, "testing")
+      
 
 
   //alerts the user how long their password will be
@@ -69,19 +88,7 @@ function writePassword() {
 
 }
 
-//this function is going to check whether or not the users input is a number or a letter
-function inputValue(x) {
-  if (isNaN(x)) {
-    return 'Not a Number!';
-  }
-  return x;
-}
 
-console.log(inputValue('100F'));
-// expected output: "Not a Number!"
-
-console.log(inputValue('0.0314E+2'));
-// expected output: 3140
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);

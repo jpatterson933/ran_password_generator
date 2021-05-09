@@ -19,7 +19,7 @@ var password = "";
 
 //this function is going to check whether or not the users input is a number or a letter
 function typeOfNaN(x) {
-  if (Number.isNaN(x)) {
+  if (isNaN(x)) {
     return 'Number NaN';
   }
   if (isNaN(x)) {
@@ -36,14 +36,16 @@ function generatePassword() {
         alert("Please choose enter a number between 8 and 128");
         var passwordLength = (prompt("How many characters would you like in your password?"));
 
+        
+
 
 
         // inputValue(passwordLength, "this is some text to display")
         return passwordLength;
       }
 
-      const test = typeOfNaN(passwordLength);
-      console.log(test, "testing")
+      console.log(passwordLength)
+      console.log(typeOfNaN(passwordLength))
       
 
 
@@ -70,14 +72,19 @@ function generatePassword() {
   if (symbolsLength === true) {
     userChoice = userChoice.concat(symbols)
   }
-
+  console.log(userChoice.length, "userChoice.length")
+  console.log(passwordLength.length, "triple checking passwordLength.length")
+  console.log(passwordLength, "actual password length")
   //for loop to go through concatted array and select random elements to generate a random password
   for (var i = 0; i < passwordLength; i++) {
     var randomPassword = Math.floor(Math.random() * userChoice.length)
     password += userChoice[randomPassword]
   }
+  //for some reason the password length is changing - Most likely in the for loop
+  console.log(password.length, "checking password length")
   return password
 }
+
 
 // Write password to the password input
 function writePassword() {
@@ -87,8 +94,6 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);

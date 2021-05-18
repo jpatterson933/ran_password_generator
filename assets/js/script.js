@@ -1,5 +1,6 @@
 // grab our button from the html here using document.querySelector
 var generateBtn = document.querySelector("#generate");
+var newPassword = document.querySelector("#new-password");
 
 //our variables for the generate password that will be used to create a password based off of user input
 var numbers = "0123456789".split("");
@@ -17,7 +18,6 @@ var userChoice = [];
 var password = "";
 //-----------------------//
 
-reset(password)
 
 //this function is going to check whether or not the users input is a number or a letter - NOT IMPLEMENTED YET
 function typeOfNaN(x) {
@@ -91,16 +91,15 @@ function writePassword() {
   //here we are setting the passwordText VALUE to the password variable that is equal to the generate password function
   passwordText.value = password;
 
-  reset(password)
+  generateBtn.style.display = "none";
+  newPassword.style.display = "inline-block";
 
-
-}
-
-//trying to implement a reset function
-function reset(x) {
-  x = "";
-  return x;
+  //here we are trying to set up a function to reload the page - a work around to prevent the constant concatation of old and newly generated random passwords
+  newPassword.addEventListener("click", 
+    //event prevent Default? should fix reloading error
+    location.reload())
+  
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword, reset);
+generateBtn.addEventListener("click", writePassword);

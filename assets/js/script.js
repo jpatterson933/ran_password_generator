@@ -1,4 +1,4 @@
-// Assignment Code
+// grab our button from the html here using document.querySelector
 var generateBtn = document.querySelector("#generate");
 
 //our variables for the generate password that will be used to create a password based off of user input
@@ -7,18 +7,19 @@ var numbers = "0123456789".split("");
 var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 var lowerCase = "abcdefghijklmnopqrstuvwxyz".split("");
 var symbols = "!@#$%^&*?=+-><(){}[]_/\~".split("");
-var passwordLength = "";
+
+//-----------------------//
+// var passwordLength = "";
 //------------------------------------------trying to figure out how to prompt the user for numbers only when they input letters for the password length
-
-
 //this userChoice will hold the user choices form the prompt - each yes will concat or add the password to the 
 var userChoice = [];
 //using a for loop below and randomness, we will generate a passowrd string that will be displayed
-
 var password = "";
+//-----------------------//
 
+reset(password)
 
-//this function is going to check whether or not the users input is a number or a letter
+//this function is going to check whether or not the users input is a number or a letter - NOT IMPLEMENTED YET
 function typeOfNaN(x) {
   if (isNaN(x)) {
     return 'Number NaN';
@@ -36,8 +37,6 @@ function generatePassword() {
         //this will appear when the user has not chosen the correct length or no length at all or entered a letter
         alert("Please choose enter a number between 8 and 128");
         var passwordLength = (prompt("How many characters would you like in your password?"));
-
-      
 
         // inputValue(passwordLength, "this is some text to display")
         return passwordLength;
@@ -67,8 +66,8 @@ function generatePassword() {
   if (symbolsLength === true) {
     userChoice = userChoice.concat(symbols)
   }
-  console.log(userChoice.length, "userChoice.length")
-  console.log(passwordLength.length, "triple checking passwordLength.length")
+
+  //the question is, why does the passwordLength not reset back to 0?
   console.log(passwordLength, "actual password length")
   //for loop to go through concatted array and select random elements to generate a random password
   for (var i = 0; i < passwordLength; i++) {
@@ -77,7 +76,8 @@ function generatePassword() {
   }
   //for some reason the password length is changing - Most likely in the for loop
   console.log(password.length, "checking password length")
-  return password
+  console.log(password, "why does this keep concating the new password to the old password?")
+  return password;
 }
 
 //i NEED TO RESET THE PASSWORD LENGTH SOMEHOW AS IT STACKS AND THE GENERATE PASSWORD WILL ONLY WORK ONCE BEFORE GIVING AN INCORRECT LENGTH
@@ -86,16 +86,21 @@ function generatePassword() {
 // Write password to the password input
 function writePassword() {
   var password = generatePassword();
+  //we set variable passwordText to equal the text area in the html with id #password
   var passwordText = document.querySelector("#password");
-
+  //here we are setting the passwordText VALUE to the password variable that is equal to the generate password function
   passwordText.value = password;
 
-  if (passwordLength > 0) {
-    var passwordLength = "";
-  }
-  
+  reset(password)
+
 
 }
 
+//trying to implement a reset function
+function reset(x) {
+  x = "";
+  return x;
+}
+
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword, reset);

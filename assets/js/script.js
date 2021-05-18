@@ -14,6 +14,7 @@ var passwordLength = "";
 //this userChoice will hold the user choices form the prompt - each yes will concat or add the password to the 
 var userChoice = [];
 //using a for loop below and randomness, we will generate a passowrd string that will be displayed
+
 var password = "";
 
 
@@ -88,6 +89,11 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+
+  if (passwordLength > 0) {
+    var passwordLength = "";
+  }
+  
 
 }
 

@@ -4,6 +4,8 @@
 
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-no-red.svg)](https://bitbucket.org/lbesson/ansi-colors)
 
+[Link of live application demo](https://youtu.be/AP4hyEjcSis)
+
 # Table of Contents
 1. [License MIT](#license-information)
 2. [Description](#application-description)
@@ -57,7 +59,7 @@ N/A
 
 # Known Issues/Errors
 
-N/A
+One known error that needs to be fixed is that one the user chooses a password that is not the correct length. The user is prompted to enter a correct length. Then when they enter a correct length, it displays that length in the generated password box. 
 
 [Back to Top](#table-of-contents)
 
@@ -70,5 +72,5 @@ If you have any questions that have not been answered, please send me an email: 
 [Back to Top](#table-of-contents)
 
 ### [jpatterson933](https://github.com/jpatterson933)
-### [Live Application](https://github.com/jpatterson933/ran_password_generator)
+### [Live Application](https://jpatterson933.github.io/ran_password_generator/)
 ### [GitHub Repository](https://github.com/jpatterson933/ran_password_generator)

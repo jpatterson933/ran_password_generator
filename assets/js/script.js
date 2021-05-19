@@ -90,16 +90,10 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   //here we are setting the passwordText VALUE to the password variable that is equal to the generate password function
   passwordText.value = password;
-
+  //Here we hide the generate button and display a new button that will refresh page and remove old random password
   generateBtn.style.display = "none";
   newPassword.style.display = "inline-block";
-
-  //here we are trying to set up a function to reload the page - a work around to prevent the constant concatation of old and newly generated random passwords
-  newPassword.addEventListener("click", 
-    //event prevent Default? should fix reloading error
-    location.reload())
   
 }
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);

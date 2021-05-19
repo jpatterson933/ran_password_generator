@@ -33,39 +33,49 @@ function typeOfNaN(x) {
 function generatePassword() {
 
   var passwordLength = (prompt("How long would you like your password to be? It can be between 8 and 128 characters!"));
-  if (passwordLength < 8 || passwordLength > 128) {
-        //this will appear when the user has not chosen the correct length or no length at all or entered a letter
-        alert("Please choose enter a number between 8 and 128");
-        var passwordLength = (prompt("How many characters would you like in your password?"));
 
-        // inputValue(passwordLength, "this is some text to display")
-        return passwordLength;
-      }      
+  if ( /^[0-9.,]+$/.test(passwordLength)) {
+    console.log('pass');
+    
+    if (passwordLength < 8 || passwordLength > 128) {
+          //this will appear when the user has not chosen the correct length or no length at all or entered a letter
+          alert("Please choose enter a number between 8 and 128");
+          var passwordLength = (prompt("How many characters would you like in your password?"));
+  
+          // inputValue(passwordLength, "this is some text to display")
+          return passwordLength;
+        }     
+        //alerts the user how long their password will be
+        alert("Your password will be " + passwordLength + " characters long");
+        //prompt to include numbers
+        var numbersLength = (confirm("Include numbers?"));
+        if (numbersLength === true) {
+          userChoice = userChoice.concat(numbers)
+        }
+        //prompt to include uppercase letters
+        var upperCaseLength = (confirm("Include UPPERCASE letters?"));
+        if (upperCaseLength === true) {
+          userChoice = userChoice.concat(upperCase)
+        }
+        //prompt to include lowercase letters
+        var lowerCaseLength = (confirm("Include lowercase letters?"));
+        if (lowerCaseLength === true) {
+          userChoice = userChoice.concat(lowerCase)
+        }
+        //prompt to include symbols
+        var symbolsLength = (confirm("Include symbols?"));
+        if (symbolsLength === true) {
+          userChoice = userChoice.concat(symbols)
+        }
+
+  } else {
+    console.log('fail');
+    alert("Please enter ONLY numeric values!")
+    location.reload();
+  }
 
 
-  //alerts the user how long their password will be
-  alert("Your password will be " + passwordLength + " characters long");
 
-  //prompt to include numbers
-  var numbersLength = (confirm("Include numbers?"));
-  if (numbersLength === true) {
-    userChoice = userChoice.concat(numbers)
-  }
-  //prompt to include uppercase letters
-  var upperCaseLength = (confirm("Include UPPERCASE letters?"));
-  if (upperCaseLength === true) {
-    userChoice = userChoice.concat(upperCase)
-  }
-  //prompt to include lowercase letters
-  var lowerCaseLength = (confirm("Include lowercase letters?"));
-  if (lowerCaseLength === true) {
-    userChoice = userChoice.concat(lowerCase)
-  }
-  //prompt to include symbols
-  var symbolsLength = (confirm("Include symbols?"));
-  if (symbolsLength === true) {
-    userChoice = userChoice.concat(symbols)
-  }
 
   //the question is, why does the passwordLength not reset back to 0?
   console.log(passwordLength, "actual password length")
@@ -79,9 +89,6 @@ function generatePassword() {
   console.log(password, "why does this keep concating the new password to the old password?")
   return password;
 }
-
-//i NEED TO RESET THE PASSWORD LENGTH SOMEHOW AS IT STACKS AND THE GENERATE PASSWORD WILL ONLY WORK ONCE BEFORE GIVING AN INCORRECT LENGTH
-
 
 // Write password to the password input
 function writePassword() {
